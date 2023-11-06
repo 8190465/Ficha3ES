@@ -11,9 +11,16 @@ public class BinString{
         return (((int) s.charAt(0))) + sum(s.substring(1));
     }
 
-    public String binarise(int x){
-        if(x==0) return "";
-        if(x%2 == 1) return "1" + binarise(x/2) ;
-        return "0" + binarise(x/2);
+    public String binarise(int x) {
+        if (x == 0) return "0";
+        String binary = "";
+
+        while (x > 0) {
+            int bit = x % 2;
+            binary = bit + binary;
+            x /= 2;
+        }
+
+        return binary;
     }
 }
